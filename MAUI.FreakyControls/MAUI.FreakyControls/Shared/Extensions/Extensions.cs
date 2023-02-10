@@ -1,10 +1,4 @@
-using System;
-using System.Drawing;
-using Color = Microsoft.Maui.Graphics.Color;
-using System.Reflection;
-using System.Xml;
 using SkiaSharp.Views.Maui.Controls.Hosting;
-using Maui.FreakyControls.Shared;
 using System.Windows.Input;
 #if ANDROID
 using Microsoft.Maui.Controls.Compatibility.Platform.Android;
@@ -42,6 +36,7 @@ public static class Extensions
         handlers.AddHandler(typeof(FreakyPicker), typeof(FreakyPickerHandler));
         handlers.AddHandler(typeof(FreakyImage), typeof(FreakyImageHandler));
         handlers.AddHandler(typeof(FreakySignatureCanvasView), typeof(FreakySignatureCanvasViewHandler));
+        handlers.AddHandler(typeof(AutoCompleteView), typeof(AutoCompleteViewHandler));
     }
 
     public static void InitSkiaSharp(this MauiAppBuilder mauiAppBuilder)

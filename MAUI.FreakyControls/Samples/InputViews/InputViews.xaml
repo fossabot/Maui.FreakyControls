@@ -13,6 +13,12 @@
 
             <Label
                 TextColor="Black" 
+                Text="Freaky Autocomplete below: " />
+                <freakyControls:AutoCompleteView
+                    ItemsSource="{Binding Countries}" />
+
+            <Label
+                TextColor="Black" 
                 Text="Freaky Entry below: " />
             <Border>
                 <freakyControls:FreakyEntry

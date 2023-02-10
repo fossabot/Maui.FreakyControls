@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Globalization;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using CommunityToolkit.Mvvm.ComponentModel;
 using Nager.Country;
-using static System.Net.Mime.MediaTypeNames;
-using Maui.FreakyControls;
 
 namespace Samples.InputViews;
 
@@ -25,13 +19,46 @@ public class InputViewModel : MainViewModel
         }
     }
 
-    public List<string> Countries { get; }
+    public ObservableCollection<string> Countries { get; }
+
+    private string selectedFruit;
+    public string SelectedFruit
+    {
+        get => selectedFruit;
+        set
+        {
+            selectedFruit = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public List<string> FruitSuggestions { get; set; }
+
+    public ICommand SelectFruitCommand { get; set; }
 
     public InputViewModel()
     {
         var countryProvider = new CountryProvider();
         var countries = countryProvider.GetCountries().Select(x => x.OfficialName);
-        Countries = new List<string>(countries);
+        Countries = new ObservableCollection<string>(countries);
+
+        FruitSuggestions = new List<string>
+        {
+            "Apple",
+            "Banana",
+            "Cherry",
+            "Date",
+            "Elderberry",
+            "Fig",
+            "Grape",
+            "Honeydew",
+            "Iced Melon"
+        };
+
+        SelectFruitCommand = new Command<string>(fruit =>
+        {
+            SelectedFruit = fruit;
+        });
     }
 
     public bool CustomSearchFunctionSwitchIsToggled
