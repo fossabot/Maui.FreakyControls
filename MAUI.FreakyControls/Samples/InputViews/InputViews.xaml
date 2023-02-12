@@ -4,12 +4,32 @@
              xmlns:freakyControls="clr-namespace:Maui.FreakyControls;assembly=Maui.FreakyControls"
              xmlns:inputViews="clr-namespace:Samples.InputViews"
              x:Class="Samples.InputViews.InputViews"
-             x:DataType="inputViews:InputViewModel"
              Title="InputViews">
     <ScrollView>
         <VerticalStackLayout
             Padding="30"
             Spacing="15">
+
+
+             <freakyControls:AutoCompleteView OpenOnFocus="true"
+                                              SearchMember="Name"
+                                              MaxResults="3"
+                                              EmptyText="No element found"
+                                              SuggestionBorderColor="Black"
+                                              Placeholder="Write something..."
+                                              PlaceholderTextColor="Silver"
+                                              ItemsSource="{Binding Countries}">
+                    <freakyControls:AutoCompleteView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding Name}" TextColor="Blue" FontAttributes="Bold" />
+									<Label Text="{Binding CountryCode}" TextColor="Red" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </freakyControls:AutoCompleteView.ItemTemplate>
+                </freakyControls:AutoCompleteView>
 
             <Label
                 TextColor="Black" 

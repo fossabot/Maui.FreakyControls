@@ -2,9 +2,16 @@
 
 public partial class InputViews : ContentPage
 {
-	public InputViews()
-	{
-		InitializeComponent();
-		this.BindingContext = new InputViewModel();
-	}
+    public InputViews()
+    {
+        try
+        {
+            InitializeComponent();
+            this.BindingContext = new InputViewModel();
+        }
+        catch (Exception ex)
+        {
+
+        }
+    }
 }

@@ -80,10 +80,10 @@
 		<None Remove="Platforms\Windows\" />
 		<None Remove="Platforms\Android\NativeControls\Signature\" />
 		<None Remove="Platforms\iOS\NativeControls\Signature\" />
-		<None Remove="Shared\FreakyAutoCompleteView\" />
 		<None Remove="clear_icon.svg" />
 		<None Remove="Shared\EventArgs\" />
 		<None Remove="Shared\FreakyCheckbox\" />
+		<None Remove="Shared\FreakyAutoComplete\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Platforms\iOS\" />
@@ -111,9 +111,9 @@
 		<Folder Include="Platforms\Windows\" />
 		<Folder Include="Platforms\Android\NativeControls\Signature\" />
 		<Folder Include="Platforms\iOS\NativeControls\Signature\" />
-		<Folder Include="Shared\FreakyAutoCompleteView\" />
 		<Folder Include="Shared\EventArgs\" />
 		<Folder Include="Shared\FreakyCheckbox\" />
+		<Folder Include="Shared\FreakyAutoComplete\" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
@@ -131,6 +131,9 @@
 		<MauiXaml Update="Shared\FreakySignatureView\SignaturePadView.xaml">
 			<SubType>
 			</SubType>
+		</MauiXaml>
+		<MauiXaml Update="Shared\FreakyAutoComplete\AutoCompleteView.xaml">
+		  <SubType></SubType>
 		</MauiXaml>
 	</ItemGroup>
 	<ItemGroup>

@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Globalization;
-using System.Windows.Input;
-using CommunityToolkit.Mvvm.ComponentModel;
-using Nager.Country;
-using static System.Net.Mime.MediaTypeNames;
-using Maui.FreakyControls;
+﻿using Nager.Country;
 
 namespace Samples.InputViews;
 
@@ -25,13 +17,17 @@ public class InputViewModel : MainViewModel
         }
     }
 
-    public List<string> Countries { get; }
+    public List<CounrryModel> Countries { get; }
 
     public InputViewModel()
     {
         var countryProvider = new CountryProvider();
-        var countries = countryProvider.GetCountries().Select(x => x.OfficialName);
-        Countries = new List<string>(countries);
+        var countries = countryProvider.GetCountries().Select(x => new CounrryModel
+        {
+            Name = x.OfficialName,
+            CountryCode = x.NumericCode
+        });
+        Countries = new List<CounrryModel>(countries);
     }
 
     public bool CustomSearchFunctionSwitchIsToggled
@@ -43,4 +39,11 @@ public class InputViewModel : MainViewModel
             OnPropertyChanged();
         }
     }
+}
+
+public class CounrryModel
+{
+    public string Name { get; set; }
+
+    public int CountryCode { get; set; }
 }

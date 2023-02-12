@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Maui.FreakyControls"
+             x:Class="Maui.FreakyControls.AutoCompleteView">
+    <StackLayout Spacing="0">
+                <StackLayout x:Name="SuggestedItemsContainerTop" IsVisible="false" BackgroundColor="Transparent" Margin="0,0,0,-1">
+                    
+                </StackLayout>
+                <Entry x:Name="MainEntry" TextChanged="SearchText_TextChanged" Focused="SearchText_Focused" Unfocused="SearchText_Unfocused" TextColor="Silver" />
+		    	<BoxView x:Name="EntryLine" HeightRequest="1" Color="Black" HorizontalOptions="Fill" IsVisible="false" />
+                <StackLayout x:Name="SuggestedItemsContainerBottom" IsVisible="false" BackgroundColor="Transparent" Margin="0,-1,0,0">
+                    <Frame x:Name="SuggestedItemsOuterContainer" BackgroundColor="White" HasShadow="false" BorderColor="Silver" Padding="0">
+                        <local:RepeaterView x:Name="SuggestedItemsRepeaterView" ShowSeparator="true" SeparatorColor="Silver" SeparatorHeight="1" />
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+</ContentView>
+
